@@ -15,10 +15,10 @@ public class InvoiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InvoiceApplication.class, args);
 	}
-	
+
 	@Bean
-    public RestTemplate getRestTemplate() {
-      return new RestTemplate();
-    }
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
 
 }

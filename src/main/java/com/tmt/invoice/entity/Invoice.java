@@ -21,36 +21,34 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "invoice")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"invoiceDate", "createdAt", "updatedAt"}, 
-        allowGetters = true)
-public class Invoice implements Serializable{
+@JsonIgnoreProperties(value = { "invoiceDate", "createdAt", "updatedAt" }, allowGetters = true)
+public class Invoice implements Serializable {
 
-private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;
+
 	@Id
-    private String invoiceNumber;
+	private String invoiceNumber;
 
-    @NotBlank(message = "Please provide a paymentTerm")
-    private String paymentTerm;
+	@NotBlank(message = "Please provide a paymentTerm")
+	private String paymentTerm;
 
-    @NotBlank(message = "Please provide a status")
-    private String status;
-    
-    @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    @CreatedDate
-    private Date invoiceDate;
-   
+	@NotBlank(message = "Please provide a status")
+	private String status;
 
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
+	@CreatedDate
+	private Date invoiceDate;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
+	@Column(nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@CreatedDate
+	private Date createdAt;
+
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@LastModifiedDate
+	private Date updatedAt;
 
 	public String getInvoiceNumber() {
 		return invoiceNumber;
@@ -99,11 +97,10 @@ private static final long serialVersionUID = 1L;
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-    
+
 	@Override
-    public String toString() {
-        return "Invoice [paymentTerm=" + paymentTerm + ", status=" + status  + ", invoiceDate =" + invoiceDate
-        		 + "]";
-    }
-    
+	public String toString() {
+		return "Invoice [paymentTerm=" + paymentTerm + ", status=" + status + ", invoiceDate =" + invoiceDate + "]";
+	}
+
 }
